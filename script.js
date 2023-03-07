@@ -1,6 +1,6 @@
 // Write your JavaScript code here!
 
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function() {
     
    let form = document.getElementById("launchForm");
    let listedPlanets;
@@ -17,8 +17,20 @@ window.addEventListener("load", function() {
 
    form.addEventListener("submit", function(event) {
         event.preventDefault();
+        form.addEventListener("submit", function(event) {
+            let usernameInput = document.querySelector("input[name=username]");
+            let teamName = document.querySelector("input[name=team]");
+            if (usernameInput.value === "" || teamName.value === "") {
+               alert("All fields are required!");
+               // stop the form submission
+               event.preventDefault();
+            }
         
     });
+
+    let button = document.getElementsById("formSubmit"){
+
+    }
    
 
 });  

@@ -14,6 +14,17 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 </ol>
                 <img src="">
    */
+  let mission = document.getElementById("missionTarget");
+  mission.innerHTML = 
+  `<h2>Mission Destination</h2>
+  <ol>
+      <li>Name: ${name}</li>
+      <li>Diameter: ${diameter}</li>
+      <li>Star: ${star}</li>
+      <li>Distance from Earth: ${distance}</li>
+      <li>Number of Moons: ${moons}</li>
+  </ol>
+  <img src="${imageUrl}">`;
 }
 
 function validateInput(testInput) {
@@ -104,13 +115,21 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json;
         });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let choice = Math.random() * 10;
+    choice = Math.floor(choice);
+    while (choice > plants.length){
+        trial = Math.random() * 10;
+        choice = Math.floor(choice);
+    }
+    return plantets[choice];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;

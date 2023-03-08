@@ -87,29 +87,29 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             //>= 10,000L <= 10,000kg
             let flightStatus = document.getElementById("launchStatus");
             list.style.visibility = "visible";
-            pilotReady.innerHTML = `Pilot: ${pilot} `;
-            copilotReady.innerHTML = `Co-pilot: ${copilot}`;
+            pilotReady.innerHTML = `Pilot ${pilot} is ready for launch`;
+            copilotReady.innerHTML = `Co-pilot ${copilot} is ready for launch`;
             
     if (fuelLevel >= 10000 && cargoLevel <=10000 ){
-        fuelReady.innerHTML = "Fuel at proper level for launch.";
-        cargoReady.innerHTML = "Cargo Level good for launch.";
-        flightStatus.innerHTML = "Shuttle is ready for launch.";
-        flightStatus.style.color = "green";
+        fuelReady.innerHTML = "Fuel level high enough for launch";
+        cargoReady.innerHTML = "Cargo mass low enough for launch";
+        flightStatus.innerHTML = "Shuttle is ready for launch";
+        flightStatus.style.color = "rgb(65, 159, 106)";
     } else if (fuelLevel < 10000 && cargoLevel <=10000){
-        fuelReady.innerHTML = "Not enough fuel for launch.";
-        cargoReady.innerHTML = "Cargo Level good for launch.";
-        flightStatus.innerHTML = "Shuttle is not ready for launch.";
-        flightStatus.style.color = "red";
+        fuelReady.innerHTML = "Fuel level too low for launch";
+        cargoReady.innerHTML = "Cargo mass low enough for launch";
+        flightStatus.innerHTML = "Shuttle Not Ready for Launch";
+        flightStatus.style.color = "rgb(199, 37, 78)";
     } else if (fuelLevel >=10000 && cargoLevel >10000){
-        fuelReady.innerHTML = "Fuel at proper level for launch.";
-        cargoReady.innerHTML = "Too much cargo mass for launch.";
-        flightStatus.innerHTML = "Shuttle is not ready for launch.";
-        flightStatus.style.color = "red";
+        fuelReady.innerHTML = "Fuel level high enough for launch";
+        cargoReady.innerHTML = "Cargo mass low enough for launch";
+        flightStatus.innerHTML = "Shuttle Not Ready for Launch";
+        flightStatus.style.color = "rgb(199, 37, 78)";
     } else if (fuelLevel < 10000 && cargoLevel >10000){
-        fuelReady.innerHTML = "Not enough fuel for launch.";
-        cargoReady.innerHTML = "Too much cargo mass for launch.";
-        flightStatus.innerHTML = "Shuttle is not ready for launch.";
-        flightStatus.style.color = "red";
+        fuelReady.innerHTML = "Fuel level too low for launch";
+        cargoReady.innerHTML = "Too much cargo mass for launch";
+        flightStatus.innerHTML = "Shuttle Not Ready for Launch";
+        flightStatus.style.color = "rgb(199, 37, 78)";
     }
 }
 
@@ -120,7 +120,7 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        return response.json;
+        return response.json();
         });
 
     return planetsReturned;

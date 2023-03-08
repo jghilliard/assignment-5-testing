@@ -2,9 +2,15 @@
 
 const { myFetch, pickPlanet, addDestinationInfo, formSubmission } = require("./scriptHelper");
 
-document.addEventListener("DOMContentLoaded", function() {
-   let itemList = document.getElementById("faultItems"); 
+window.addEventListener("load", function() {
+
+    //const { myFetch, pickPlanet, addDestinationInfo, formSubmission } = require("./scriptHelper");
+
+   let itemList = document.getElementById("faultyItems"); 
+   itemList.style.visibility = "hidden";
    let form = document.getElementById("launchForm");
+
+   
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse = myFetch();

@@ -28,13 +28,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-    let testNumber  = Number(testInput); 
-   if (testNumber === ""){
+    let testNumber = Number(testInput); 
+   if (testInput === ""){
     return "Empty";
    }
-   if (typeof testNumber === "number"){
-    return "Is a Number";
-   } else {return "Not a Number";}
+   if (isNaN(testNumber)){
+    return "Not a Number";
+   } else {return "Is a Number";}
 }
 
 
@@ -125,11 +125,11 @@ async function myFetch() {
 function pickPlanet(planets) {
     let choice = Math.random() * 10;
     choice = Math.floor(choice);
-    while (choice > plants.length){
+    while (choice > planets.length){
         trial = Math.random() * 10;
         choice = Math.floor(choice);
     }
-    return plantets[choice];
+    return planets[choice];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
